@@ -593,6 +593,33 @@ Umbraco.Web.HealthCheck.NotificationMethods.IHealthCheckNotificationMethod
 
 Umbraco.Web.HealthCheck.NotificationMethods.EmailNotificationMethod, Umbraco.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
 
+Umbraco.Core.Models.PublishedContent.PublishedElementModel
+
+Umbraco.Web.PublishedModels.IconLinkItem, Uppgift1.web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+
+Umbraco.Core.Models.PublishedContent.PublishedContentModel
+
+Umbraco.Web.PublishedModels.Article, Uppgift1.web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+Umbraco.Web.PublishedModels.ArticleControls, Uppgift1.web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+Umbraco.Web.PublishedModels.ArticleList, Uppgift1.web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+Umbraco.Web.PublishedModels.Contact, Uppgift1.web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+Umbraco.Web.PublishedModels.ContactFormControls, Uppgift1.web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+Umbraco.Web.PublishedModels.Content, Uppgift1.web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+Umbraco.Web.PublishedModels.ContentControls, Uppgift1.web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+Umbraco.Web.PublishedModels.Error, Uppgift1.web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+Umbraco.Web.PublishedModels.File, Uppgift1.web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+Umbraco.Web.PublishedModels.Folder, Uppgift1.web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+Umbraco.Web.PublishedModels.FooterControls, Uppgift1.web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+Umbraco.Web.PublishedModels.HeaderControls, Uppgift1.web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+Umbraco.Web.PublishedModels.Home, Uppgift1.web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+Umbraco.Web.PublishedModels.Image, Uppgift1.web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+Umbraco.Web.PublishedModels.MainImageControls, Uppgift1.web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+Umbraco.Web.PublishedModels.Member, Uppgift1.web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+Umbraco.Web.PublishedModels.Search, Uppgift1.web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+Umbraco.Web.PublishedModels.SEocontrols, Uppgift1.web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+Umbraco.Web.PublishedModels.VisibilityControls, Uppgift1.web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+Umbraco.Web.PublishedModels.XMlsitemap, Uppgift1.web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+
 Umbraco.Core.Deploy.IServiceConnector
 
 
