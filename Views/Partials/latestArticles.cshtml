@@ -38,10 +38,10 @@
                             }
                         </a>
                         <p class="post-meta">
-                            Posted
+                            Made in 
                             @if (!string.IsNullOrWhiteSpace(article.AuthorName))
                             {
-                                @Html.Raw("by") @article.AuthorName
+                                @Html.Raw("by ") @article.AuthorName
                             }
                             on @article.ArticleDate.ToString("MMMM dd, yyyy")
                         </p>

@@ -1,34 +1,69 @@
 ﻿@inherits UmbracoViewPage
-<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-    <div class="container">
-        <a class="navbar-brand" style="font-family: Algerian;
+    @{ 
+        var homePage = Model.AncestorOrSelf<Home>();
+        var navItems = homePage.Children.Where(x => x.IsVisible());
+    }
+@{
+        var member = System.Web.Security.Membership.GetUser();
+
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" style="font-family: Algerian;
         color: deepskyblue;
-        font-size: larger" href="/"><img src="/img/logotype.svg" style="width:22%;" /><br />TAZ-Elect </a>
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            Menu
-            <i class="fas fa-bars"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="/" style="color: deepskyblue">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/about/" style="color:deepskyblue">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/blog/test-article/" style="color: deepskyblue">Specifucations</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/blog/" style="color: deepskyblue">Main Products</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/search/" style="color: deepskyblue">Search</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/contact/" style="color: deepskyblue">Contact</a>
-                </li>
-            </ul>
+        font-size: larger" href="/"><img src="/img/logotype.svg" style="width:22%;" /><br />@Umbraco.GetDictionaryValue("Site.Name") </a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                @Umbraco.GetDictionaryValue("Navigation.Menu")
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    @*<li class="nav-item">
+                        <a class="nav-link" href="@homePage.Url" style="color: deepskyblue">@homePage</a>
+                    </li>*@
+
+                    @if (navItems != null && navItems.Any())
+                    {
+                        foreach (var item in navItems)
+                        {
+                            var itemChildren = item.Children.Where(x => x.IsVisible());
+                            var hasChildren = itemChildren != null && itemChildren.Any();
+
+                            if (hasChildren)
+                            {
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">@item.Name</a>
+                                    <div class="dropdown-menu">
+                                        @foreach (var child in itemChildren)
+                                        {
+                                            <a class="dropdown-item" href="@child.Url">@child.Name</a>
+                                        }
+                                   
+                                    </div>
+                                </li>
+                            }
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="@item.Url" style="color:deepskyblue">@item.Name</a>
+                            </li>
+                        }
+
+                    }
+
+
+                    @if (member != null && Umbraco.MemberIsLoggedOn())
+                    {
+                        <li class="margin-right-10">
+                            @using (Html.BeginUmbracoForm("SubmitLogout", "Member", System.Web.Mvc.FormMethod.Post, new { id = "logout" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                <button class="btn btn-outline-danger btn-group btn-group-sm" name="login" type="submit">Logout</button>
+                            }
+                        </li>
+                        <li class="user-name"><br />&nbsp;&nbsp; Welcome <b>@member.UserName</b></li>
+                    }
+                </ul>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
+}
